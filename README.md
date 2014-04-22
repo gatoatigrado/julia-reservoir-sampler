@@ -1,4 +1,4 @@
 julia-reservoir-sampler
 =======================
 
-personal project
+personal project, see reservoir_sampler.jl
