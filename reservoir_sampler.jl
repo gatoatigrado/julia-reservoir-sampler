@@ -21,9 +21,6 @@ update(sampler, x) =
 		if index <= sz
 			sampler.values[index] = x
 		end
-		if n == sz
-			sampler.values = shuffle(sampler.values)
-		end
 	end
 
 nonnil_values(sampler) = sampler.values[1:min(sampler.num_added, length(sampler.values))]
@@ -32,6 +29,6 @@ sampler = new(Union(ASCIIString, UTF8String), int(ARGS[1]))
 for line in eachline(STDIN)
 	update(sampler, line)
 end
-for line in nonnil_values(sampler)
+for line in shuffle(nonnil_values(sampler))
 	write(STDOUT, line)
 end
